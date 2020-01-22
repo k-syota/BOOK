@@ -1,2 +1,8 @@
-<h1>Books#new</h1>
-<p>Find me in app/views/books/new.html.erb</p>
+<h1>New book</h1>
+
+<%=form_for(@book) do |f| %>
+  <h4 class="title">Title</h4>
+  <%= f.text_title :title %>
+  <h4 class="body">Opinions</h4>
+  <%= f.text_area :body %>
+<% end %>
