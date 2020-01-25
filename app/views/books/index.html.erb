@@ -1,17 +1,12 @@
+
 <h1>Books</h1>
 
   <table>
-  	<thead>
-    <tr>
-  	<th>本のタイトル</th>
-  	<th>本の感想</th>
-    </tr>
-    </thead>
     <tbody>
-    <% @books.each do |book| %>
+    <% @book.each do |book| %>
     <tr>
       <td>
-        <%= book.title %>
+        <%= link_to book.title, book_path(book.id) %>
       </td>
       <td>
         <%= book.body %>
