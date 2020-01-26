@@ -10,10 +10,13 @@
   </head>
 
 <body>
-    <header>
-        <nav>
+    <header class="navbar navbar-fixed-top navbar-inverse">
+        <div class="container">
         <% if user_signed_in? %>
-            <%= 'Bookers' %>
+            <nav class="navbar navbar-nav navbar-left">
+            Bookers
+            </nav>
+            <nav class="navbar navbar-nav navbar-right">
             <%= link_to 'Home', user_path(current_user.id) %>
             <%= link_to 'Users', users_path %>
             <%= link_to 'Books', books_path %>
@@ -24,8 +27,9 @@
             <%= link_to 'About', home_about_path %>
             <%= link_to 'sign up', new_user_registration_path %>
             <%= link_to 'login', new_user_session_path %>
+            </nav>
         <% end %>
-        </nav>
+        </div>
     </header>
 
     <p class="notice"><%= notice %></p>
@@ -34,6 +38,8 @@
     <%= yield %>
 
 
-    <footer>CopyRight Infratop.inc</footer>
+    <footer class="text-right">
+    CopyRight Infratop.inc
+    </footer>
   </body>
 </html>

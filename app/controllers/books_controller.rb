@@ -1,6 +1,5 @@
 
 class BooksController < ApplicationController
-  before_action :authenticate_user!
 
   def top   
   end
@@ -37,7 +36,6 @@ class BooksController < ApplicationController
       flash[:notice] = "Book was successfully created."
       redirect_to book_path(@book.id)
     else
-      @book = Book.all
       render 'index'
     end
   end
@@ -48,7 +46,7 @@ class BooksController < ApplicationController
        redirect_to books_path
     else
       @book = Book.all
-      render 'index'
+      redirect_to 'books_path'
     end 
   end
 

@@ -11,16 +11,15 @@
   </div>
 <% end %>
 
-<main>
-  <div class="blog">
+  <div class="col-lg-4">
     <%= render 'users/list', user: @user %>
   </div>
 
 
-  <section class="sidebar">
+  <div class="col-lg-8">
   <h1>Books</h1>
 
-    <table>
+    <table class="table table-striped">
       <thead>
       <tr>
       <th>Title</th>
@@ -41,5 +40,4 @@
       <% end %>
       </tbody>
     </table>
-  </section>
-</main>
+  </div>
