@@ -1,4 +1,6 @@
-<h2>User</h2>
+<%= render 'users/list', user: @user %>
+
+<h1>Users</h1>
 
   <table>
   	<thead>
@@ -9,8 +11,10 @@
     </thead>
     <tbody>
     <tr>
-    <% @user.each do |user| %>
-
+    <% @users.each do |user| %>
+      <td>
+       <%= attachment_image_tag user, :profile_image, :fill, 60, 60, format: 'jpeg', class: "img-circle pull-left profile-img", fallback: "no_image.jpg" %>  
+      </td>
       <td>
         <%= user.name %>
       </td>
@@ -21,5 +25,3 @@
     <% end %>
     </tbody>
   </table>
-
-<%= render 'users/list', user: @user %>
