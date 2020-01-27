@@ -1,34 +1,66 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <title>Bookers</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+</head>
 
 <body>
     <header class="navbar navbar-fixed-top navbar-inverse">
         <div class="container">
-        <% if user_signed_in? %>
+            <% if user_signed_in? %>
             <nav class="navbar navbar-nav navbar-left">
-            Bookers
+                Bookers
             </nav>
             <nav class="navbar navbar-nav navbar-right">
-            <%= link_to 'Home', user_path(current_user.id) %>
-            <%= link_to 'Users', users_path %>
-            <%= link_to 'Books', books_path %>
-            <%= link_to 'logout', destroy_user_session_path, method: :delete %>
-        <% else %>
-            <%= 'Bookers' %>
-            <%= link_to 'Home', root_path %>
-            <%= link_to 'About', home_about_path %>
-            <%= link_to 'sign up', new_user_registration_path %>
-            <%= link_to 'login', new_user_session_path %>
+                <ul>
+                    <li class="btn btn-default">
+                        <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+                        <%= link_to 'Home', user_path(current_user.id) %>
+                    </li>
+                    <li class="btn btn-default">
+                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                        <%= link_to 'Users', users_path %>
+                    </li>
+                    <li class="btn btn-default">
+                        <span class="glyphicon glyphicon-book" aria-hidden="true"></span>
+                        <%= link_to 'Books', books_path %>
+                    </li>
+                    <li class="btn btn-default">
+                        <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
+                        <%= link_to 'logout', destroy_user_session_path, method: :delete %>
+                    </li>
+                </ul>
             </nav>
-        <% end %>
+            <% else %>
+            <nav class="navbar navbar-nav navbar-left">
+                Bookers
+            </nav>
+            <nav class="navbar navbar-nav navbar-right">
+                <ul>
+                    <li class="btn btn-default">
+                        <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+                        <%= link_to 'Home', root_path %>
+                    </li>
+                    <li class="btn btn-default">
+                        <span class="glyphicon glyphicon-link" aria-hidden="true"></span>
+                        <%= link_to 'About', home_about_path %>
+                    </li>
+                    <li class="btn btn-default">
+                        <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                        <%= link_to 'Sign up', new_user_registration_path %>
+                    </li>
+                    <li class="btn btn-default">
+                        <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>
+                        <%= link_to 'login', new_user_session_path %>
+                    </li>
+                </ul>
+            </nav>
+            <% end %>
         </div>
     </header>
 
@@ -37,9 +69,10 @@
 
     <%= yield %>
 
-
-    <footer class="text-right">
-    CopyRight Infratop.inc
-    </footer>
-  </body>
+    <div class="container">
+        <footer class="text-right">
+            CopyRight Infratop.inc
+        </footer>
+    </div>
+</body>
 </html>

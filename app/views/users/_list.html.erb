@@ -8,19 +8,23 @@
       <td><%= user.name %></td>
     </tr>
    <td><%= 'Introduction' %></td>
-  <td><%= @user.introduction %></td>
+  <td><%= user.introduction %></td>
  </tr>
 </thead>
 </table>
 
-<%= link_to 'edit', edit_user_path(current_user.id) %>
+<li class="btn btn-link btn-block">
+  <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
+  <%= link_to 'edit', edit_user_path(current_user.id) %>
+</li>
 
 <h2>New book</h2>
-
-<%= form_for(@book) do |f| %>
-  <h4>Title</h4>
-  <%= f.text_field :title %>
-  <h4>Opinion</h4>
-  <%= f.text_area :body %>
-  <p><%= link_to 'Create Book', books_path, class: "btn btn-default" %></p>
-<% end %>
+  <%= form_for(@book) do |f| %>
+    <h4>Title</h4>
+    <%= f.text_field :title %>
+    <h4>Opinion</h4>
+    <%= f.text_area :body %>
+    <div class="">
+    <input class="btn btn-default btn-block btn-primary" type="submit" value='Create Book'>
+    </div>
+  <% end %>

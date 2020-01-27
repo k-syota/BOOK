@@ -1,7 +1,9 @@
 
 class BooksController < ApplicationController
+    before_action :authenticate_user!, only: [:index,:show,:create,:edit,:update,:destroy]
 
-  def top   
+
+  def top
   end
 
   def index
@@ -12,7 +14,7 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find(params[:id])
-    @user = User.find(current_user.id)
+    @user = @book.user
   end
 
   def edit
@@ -46,7 +48,7 @@ class BooksController < ApplicationController
        redirect_to books_path
     else
       @book = Book.all
-      redirect_to 'books_path'
+      render 'index'
     end 
   end
 

@@ -1,36 +1,51 @@
-<h2>Editing Book</h2>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-3"></div>
+  
+  <div class="col-xs-6">
+  <h1>Editing Book</h1>
 
-<%= form_for(@book) do |f| %>
+  <%= form_for(@book) do |f| %>
 
-<% if @book.errors.any? %>
-  <ul style="color: red">
-    <h2><%= @book.errors.count %> errors prohibited this obj from being saved:</h2>
-  </ul>
-  <div>
-    <ul style="color: red">
+    <% if @book.errors.any? %>
+      <ul style="color: red">
+        <h2><%= @book.errors.count %> errors prohibited this obj from being saved:</h2>
+      </ul>
+      <div>
+      <ul style="color: red">
       <% @book.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
-    </ul>
-  </div>
-<% end %>
+      </ul>
+      </div>
+   <% end %>
     <div>
-    <%= 'Title' %>
-    <%= f.text_field :title %>
+      <%= 'Title' %>
+      <br>
+      <div class="">
+        <%= f.text_field :title %>
+      </div>
     </div>
 
     <div>
     <%= 'Opinion' %>
+    <br>
     <%= f.text_area :body %>
     </div>
 
+    <div class="">
+    <input class="btn btn-default btn-block btn-primary" type="submit" value='Update Book'>
+    </div>
     <div>
-    <%= f.submit 'Update Book' %>
+      <%= link_to "Show", book_path %>
+      <%= link_to "Back", books_path %>
     </div>
 
-    <div>
-    <%= link_to "Show", book_path %>
-    <%= link_to "Back", books_path %>
-    </div>
+  <% end %>
+</div>
 
-<% end %>
+<div class="col-xs-3">
+</div>
+
+</div>
+</div>

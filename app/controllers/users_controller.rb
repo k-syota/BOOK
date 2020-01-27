@@ -1,18 +1,21 @@
 class UsersController < ApplicationController
+    before_action :authenticate_user!
+
   def show
     @user = User.find(params[:id])
     @book = Book.new
-    @books = Book.all
+    @books = @user.books
   end
 
   def index
     @users = User.all
     @user = User.find(current_user.id)
     @book = Book.new
+
   end
 
   def edit
-    @user = User.find(params[:id])
+      @user = User.find(params[:id])
   end
 
   def update
@@ -28,7 +31,6 @@ class UsersController < ApplicationController
   private
   def user_params
     params.require(:user).permit(:name, :user_id, :profile_image_id, :introduction)
-    
   end
 
 end
